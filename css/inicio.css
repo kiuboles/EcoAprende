@@ -1,0 +1,7 @@
+body{
+   background-image: url("../img/fondo1_inicio.png"); 
+}
+button{
+    border-radius: 30px;
+    border-color: rgba(255, 255, 255, 0);
+}
