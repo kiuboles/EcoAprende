@@ -9,16 +9,44 @@ body{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    height: 650px;
     display: flex;
     flex-direction: column;
     justify-content: center; /* Centrado horizontal */
     align-items: center;     /* Centrado vertical */
     
 }
-button{
+#fondo1 h1{
+    color: #C7D06C;
+    text-shadow:  
+        -3px -3px 0 white,
+         3px -3px 0 white,
+        -3px  3px 0 white,
+         3px  3px 0 white;
+    font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', sans-serif;
+    font-size: 80px;
+    text-align: center;
+}
+
+#fondo1 button{
+    background-color: #C7D06C;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
     border-radius: 30px;
     border-color: rgba(255, 255, 255, 0);
+    height: 65px;
+    width: 200px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.247);
 }
+
+#fondo1 button:hover{
+     transform: translateY(-3px) translateX(3px);
+}
+
+
+
+
 #informacion {
     display: flex;
     flex-wrap: wrap;
@@ -26,18 +54,9 @@ button{
     gap: 25px;
     margin: 10%;
 }
-#fondo1 h1{
-    color: #C7D06C;
-    text-shadow:  
-        -1px -1px 0 white,
-         1px -1px 0 white,
-        -1px  1px 0 white,
-         1px  1px 0 white;
-    font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', sans-serif;
-}
 
-#fondo1 button{
-    color: #C7D06C;
+h3, p{
+    color: white;
 }
 
 
@@ -67,14 +86,14 @@ button{
     height: 100%;
     border-radius: 15px;
     backface-visibility: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.247);
     padding: 15px;
     text-align: center;
     background: #79D0C0;
 }
 
 .card-front img {
-    width: 80px;
+    width: 150px;
     margin-bottom: 10px;
 }
 
