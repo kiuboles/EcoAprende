@@ -7,8 +7,6 @@ body{
    background-repeat: no-repeat;
 }
 
-/* HERO */
-
 #fondo1{
     background-image: url("../img/fondo_inicio.png"); 
     background-size: cover;
@@ -31,9 +29,6 @@ body{
     -webkit-text-stroke: 2px white;
     text-shadow: 0 4px 8px rgba(0,0,0,0.25);
 }
-
-
-/* BOTÓN */
 
 #fondo1 button{
     background-color: #C7D06C;
