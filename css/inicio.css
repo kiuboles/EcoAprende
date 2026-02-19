@@ -1,7 +1,155 @@
 body{
-   background-image: url("../img/fondo1_inicio.png"); 
+   margin: 0;
+   font-family: Arial, sans-serif;
+   background-image: url("../img/fondo.png");
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
 }
-button{
+
+#fondo1{
+    background-image: url("../img/fondo_inicio.png"); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+#fondo1 h1{
+    color: #C7D06C;
+    font-family: 'Arial Rounded MT Bold', sans-serif;
+    font-size: clamp(32px, 6vw, 70px);
+    /*bordes en el text*/
+    -webkit-text-stroke: 2px white;
+    text-shadow: 0 4px 8px rgba(0,0,0,0.25);
+}
+
+#fondo1 button{
+    background-color: #C7D06C;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
     border-radius: 30px;
-    border-color: rgba(255, 255, 255, 0);
+    border: none;
+    height: 60px;
+    width: 180px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease;
 }
+
+#fondo1 button:hover{
+     transform: translateY(-4px);
+     box-shadow: 0 8px 18px rgba(0,0,0,.3);
+}
+
+/* CARDS */
+
+#informacion {
+    display: grid;
+    grid-template-columns: repeat(3, 230px);
+    justify-content: center;
+    gap: 70px 70px; /* fila / columna */
+    padding: 40px 20px;
+}
+
+
+h3, p{
+    color: white;
+}
+
+.card {
+    width: 230px;
+    height: 300px;
+    perspective: 1000px;
+    margin: 0; 
+}
+
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    backface-visibility: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.247);
+    padding: 15px;
+    text-align: center;
+    background: #79D0C0;
+}
+
+.card-front img {
+    width: 130px;
+    margin-bottom: 10px;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}
+
+/* 📱 RESPONSIVE */
+
+@media (max-width: 768px){
+
+    #informacion{
+        gap: 18px;
+        padding: 30px 10px;
+    }
+
+    .card{
+        width: 180px;
+        height: 260px;
+    }
+
+    .card-front img{
+        width: 100px;
+    }
+}
+
+@media (max-width: 480px){
+
+    .card{
+        width: 90%;
+        max-width: 260px;
+    }
+
+    #fondo1 button{
+        width: 160px;
+        height: 55px;
+    }
+}
+
+/* tablets */
+@media (max-width: 900px) {
+    #informacion {
+        grid-template-columns: repeat(2, 230px);
+    }
+}
+
+/* celulares */
+@media (max-width: 500px) {
+    #informacion {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+}
+
