@@ -1,0 +1,118 @@
+<!--
+===========================================================
+Proyecto: EcoAprende
+Archivo: objetivos.html
+Descripción: Vista principal de objetivos
+Autor: Javier Rodríguez
+Fecha de creación: 2026-02-19
+Tecnologías: HTML5, CSS3, Bootstrap 5, SVG
+Notas:
+- Barra lateral fija izquierda
+- La navegación se realiza mediante botones, esto se maneja con JavaScript
+- El contenido principal se inyecta dinámicamente en la sección #vistaPrincipal, esto se maneja con JavaScript
+- El nombre de usuario y la imagen de perfil se cargan dinámicamente, esto se maneja con JavaScript
+===========================================================
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- ================= META ================= -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EcoAprende | Objetivos</title>
+
+    <!-- ================= STYLES ================= -->
+    <link rel="stylesheet" href="css/styleObjetivos.css">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- ================= SIDEBAR ================= -->
+    <nav id="barraLateral" class="d-flex flex-column flex-shrink-0 fixed-top"
+        aria-label="Barra de navegación principal">
+        <!-- Logo -->
+        <button id="btnLogo" class="p-3" type="button" aria-label="Ir a inicio">
+            <img src="img/EcoAprende.png" id="logo" alt="Logo EcoAprende">
+        </button>
+
+        <!-- Navegación -->
+        <ul class="nav nav-pills nav-flush flex-column mb-auto text-center" role="menu">
+            <li class="nav-item" role="none">
+                <button id="btnInicio" class="p-3" type="button" role="menuitem">
+                    <i class="bi bi-house" aria-hidden="true"></i>
+                    <span >Inicio</span>
+                </button>
+            </li>
+
+            <li class="nav-item" role="none">
+                <button id="btnClasificacion" class="p-3" type="button" role="menuitem">
+                    <i class="bi bi-bar-chart" aria-hidden="true"></i>
+                    <span >Clasificación</span>
+                </button>
+            </li>
+
+            <li class="nav-item" role="none">
+                <button id="btnMascota" class="p-3" type="button" role="menuitem">
+                    <i class="bi bi-bluesky" aria-hidden="true"></i>
+                    <span >Mascota</span>
+                </button>
+            </li>
+        </ul>
+
+        <!-- Perfil -->
+        <button id="btnPerfil" class="p-3 border-top" type="button" aria-label="Perfil de usuario">
+            <img id="imgPerfil" class="img-perfil" src="img/icono.png" alt="Imagen de perfil del usuario">
+        </button>
+
+        <!-- Username dinámico -->
+        <p id="username" aria-live="polite">
+            Username
+        </p>
+    </nav>
+
+    <!-- ================= CONTENIDO PRINCIPAL ================= -->
+    <main id="contenidos">
+        <!-- ===== BUSCADOR ===== -->
+        <header id="buscador" class="p-4">
+            <div class="container w-50">
+                <input type="search" id="buscadorInput" class="form-control" placeholder="Buscar">
+            </div>
+        </header>
+
+        <!-- ===== FONDO DECORATIVO ===== -->
+        <div class="fondo" aria-hidden="true">
+            <svg viewBox="0 0 1440 320" preserveAspectRatio="none" class="waves">
+                <path d="M0,224 C240,288 480,288 720,256 960,224 1200,160 1440,128 L1440,320 L0,320 Z" fill="#cfe8cf"
+                    opacity="0.8" />
+                <path d="M0,256 C240,320 480,320 720,288 960,256 1200,192 1440,160 L1440,320 L0,320 Z" fill="#b7e1cd"
+                    opacity="0.9" />
+            </svg>
+        </div>
+
+        <!-- ===== CONTENIDO DINÁMICO SPA ===== -->
+        <section id="vistaPrincipal">
+            <!-- El contenido se inyecta aquí vía JavaScript -->
+        </section>
+    </main>
+
+    <!-- ================= SCRIPTS ================= -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
