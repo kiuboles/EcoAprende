@@ -1,0 +1,59 @@
+body{
+    font-family:'Baloo 2', cursive;
+    background:#F1ECCE;
+}
+
+/* ===== BARRA ADMIN ===== */
+.admin-bar{
+    background-color:#7c4bc4;
+    color:white;
+    padding:12px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.admin-title{
+    font-size:1.3rem;
+}
+
+.btn-logout{
+    background:#B7C063;
+    border:none;
+    padding:8px 20px;
+    border-radius:30px;
+    color:white;
+}
+
+.admin-login{
+    max-width:600px;
+    margin:120px auto;
+    background:linear-gradient(145deg,#a06cd5,#8f63c4);
+    padding:50px;
+    border-radius:40px;
+    color:white;
+    text-align:center;
+}
+
+.form-input{
+    width:100%;
+    padding:12px 20px;
+    border-radius:30px;
+    border:none;
+    background:#e6e6e6;
+    margin-bottom:20px;
+}
+
+.btn-login{
+    background:#B7C063;
+    border:none;
+    padding:12px 40px;
+    border-radius:30px;
+    color:white;
+}
+
+.error{
+    color:#ffcccc;
+    margin-top:10px;
+}
