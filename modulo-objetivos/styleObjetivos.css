@@ -1,0 +1,42 @@
+#barraInsignia {
+    display: flex;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+}
+
+#progress-container {
+    width: 70vw;
+    height: 2vw;
+    border-radius: 50px;
+    border: 1px solid #0000004d;
+}
+
+.progress-bar {
+    background-color: var(--primary) !important;
+}
+
+#porcentajeProgreso {
+    margin-left: 1vw;
+    color: var(--text-tertiary);
+
+    filter:
+    drop-shadow(var(--more) 0 0 var(--text-light))
+    drop-shadow(var(--minus) 0 0 var(--text-light))
+    drop-shadow(0 var(--more) 0 var(--text-light))
+    drop-shadow(0 var(--minus) 0 var(--text-light));
+}
+
+#objetivosList {
+    margin-top: 2vw;
+    display: flex;
+}
+
+.card {
+    color: var(--text-light) !important;
+    border-radius: 50vw !important;
+    background-color: var(--secondary) !important;
+    width: 20vw;
+    transform: scale(0.8);
+    transform-origin: center;
+    text-align: center;
+}
