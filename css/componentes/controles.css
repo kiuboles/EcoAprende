@@ -1,0 +1,25 @@
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+     margin-top: -40px; 
+    margin-bottom: 20px;
+}
+
+.controls label{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+    color: #09B6B2;
+}
+
+.controls input{
+    width: 100%;
+    margin-top: 5px;
+    padding: 8px;
+    border-radius: 10px;
+    border: 2px solid #09B6B2;
+    text-align: center;
+}
