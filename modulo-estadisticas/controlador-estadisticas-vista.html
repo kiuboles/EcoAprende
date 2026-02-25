@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Estadísticas - EcoAprende</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/componentes/bar.css">
+    <link rel="stylesheet" href="../css/componentes/cards.css">
+    <link rel="stylesheet" href="../css/componentes/controles.css">
+
+</head>
+
+<body>
+
+    <aside class="sidebar">
+
+    <div class="logo">
+    </div>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="#">
+                    <i class="icon-home"></i>
+                    <span>Inicio</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="icon-chart"></i>
+                    <span>Clasificación</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="icon-paw"></i>
+                    <span>Estadísticas</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="icon-paw"></i>
+                    <span>Mascota</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="user-icon">
+        <i class="icon-user"></i>
+    </div>
+
+</aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <input type="text" placeholder="Buscar" class="search">
+        </header>
+
+        <section class="stats-section">
+
+            <div class="titulo-con-icono">
+                <img src="../images/logo.png" class="icono-titulo">
+            </div>
+
+            <div class="stats-cards">
+
+                <div class="card">
+                    <div class="plastico">
+                        <img src="../images/plastico.png" class="icono">
+                        <span class="kg">0 Kg</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="papel">
+                        <img src="../images/papel.png" class="icono">
+                        <span class="kg">0 Kg</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="vidrio">
+                        <img src="../images/vidrio.png" class="icono">
+                        <span class="kg">0 Kg</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="metal">
+                        <img src="../images/metal.png" class="icono">
+                        <span class="kg">0 Kg</span>
+                    </div>
+                </div>
+
+            </div> 
+
+            <div class="controls">
+                <label>Plástico
+                    <input type="text" id="inputPlastico" min="0" value="0">
+                </label>
+
+                <label>Papel
+                    <input type="number" id="inputPapel" min="0" value="0">
+                </label>
+
+                <label>Vidrio
+                    <input type="number" id="inputVidrio" min="0" value="0">
+                </label>
+
+                <label>Metal
+                    <input type="number" id="inputMetal" min="0" value="0">
+                </label>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="controlador-estadisticas.js"></script>
+</body>
+
+</html>
