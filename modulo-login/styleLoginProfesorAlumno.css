@@ -1,0 +1,74 @@
+/* SECCIÓN PRINCIPAL */
+.main-section {
+    
+    padding: 60px 20px 120px;
+    position: relative;
+}
+
+/* Imagen circular */
+.perfil-img img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 30%;
+}
+
+/* TARJETA LOGIN */
+.login-card {
+    background: linear-gradient(145deg, #a06cd5, #8f63c4);
+    border-radius: 40px;
+    padding: 40px 20px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.label-text {
+    font-size: 2rem;
+    color: white;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 30px;
+    border: none;
+    background-color: #e6e6e6;
+}
+
+/* BOTÓN */
+.btn-login {
+    background-color: #B7C063;
+    border: none;
+    padding: 15px 15px;
+    font-size: 1.8rem;
+    border-radius: 50px;
+    color: white;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.btn-login:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+
+    .perfil-img img {
+        max-width: 250px;
+    }
+
+    .label-text {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+
+    .btn-login {
+        font-size: 1.2rem;
+        padding: 12px 20px;
+        width: 100%;
+    }
+
+    .login-card {
+        padding: 25px 15px;
+    }
+}

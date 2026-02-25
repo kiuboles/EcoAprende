@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Baloo 2', cursive;
+    background-color: #F1ECCE;
+    margin: 0;
+    position: relative;
+    background-image: url("../img/fondo.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* ====== HEADER ====== */
+.header-custom {
+    background-color: #09B6B2;
+    padding: 6px 20px;
+}
+
+.search-box {
+    background-color: #e6e6e6;
+    border-radius: 50px;
+    padding: 10px 10px;
+    width: 400px;
+}
+
+.search-box input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+}
+
+/* CONTENIDO PRINCIPAL */
+.main-section {
+    padding: 40px 5px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.titulo {
+    font-size: 4rem;
+    color: #7c4bc4;
+    text-shadow: 3px 3px 0px white;
+}
+
+.subtitulo {
+    font-size: 3rem;
+    color: #f4a100;
+    margin-bottom: 3px;
+    text-shadow: 3px 3px 0px white;
+}
+
+/* BOTONES CIRCULARES */
+
+.btn-img {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-img:hover {
+    transform: scale(1.08);
+}
+
+.admin-link{
+    font-size: 0.9rem;
+    color: #6c757d;
+    text-decoration: none;
+}
+
+.admin-link:hover{
+    text-decoration: underline;
+    color: #000;
+}
