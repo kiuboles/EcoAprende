@@ -1,0 +1,13 @@
+{
+  "insignia": "Tortuga",
+  "categorias": {
+    "latas": 10,
+    "cartón": 16,
+    "vidrio": 19
+  },
+  "minimos": {
+    "latas": 20,
+    "cartón": 16,
+    "vidrio": 19
+  }
+}
