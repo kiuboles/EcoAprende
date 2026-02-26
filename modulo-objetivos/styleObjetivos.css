@@ -39,3 +39,7 @@
     transform-origin: center;
     text-align: center;
 }
+
+#campos {
+ display: flex;   
+}

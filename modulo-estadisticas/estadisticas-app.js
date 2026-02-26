@@ -1,46 +1,26 @@
 export function initEstadisticas() {
-    const inputPlastico = document.getElementById("inputPlastico");
-    const inputPapel = document.getElementById("inputPapel");
-    const inputVidrio = document.getElementById("inputVidrio");
-    const inputMetal = document.getElementById("inputMetal");
 
-    const plasticoCard = document.querySelector(".plastico").closest(".card");
-    const papelCard = document.querySelector(".papel").closest(".card");
-    const vidrioCard = document.querySelector(".vidrio").closest(".card");
-    const metalCard = document.querySelector(".metal").closest(".card");
+    fetch('../backend/reciclaje/estadisticas.php')
+        .then(res => res.json())
+        .then(datos => {
 
-    function convertirAKg(valorTexto) {
+            const plastico = document.querySelector(".plastico .kg");
+            const papel = document.querySelector(".papel .kg");
+            const vidrio = document.querySelector(".vidrio .kg");
+            const metal = document.querySelector(".metal .kg");
 
-        valorTexto = valorTexto.toLowerCase().trim();
+            if (!plastico || !papel || !vidrio || !metal) {
+                console.warn("Las cards aún no están en el DOM");
+                return;
+            }
 
+            plastico.textContent = Math.round(datos.plastico) + " pts";
+            papel.textContent = Math.round(datos.papel) + " pts";
+            vidrio.textContent = Math.round(datos.vidrio) + " pts";
+            metal.textContent = Math.round(datos.metal) + " pts";
 
-        if (valorTexto.includes("g") && !valorTexto.includes("kg")) {
-            let numero = parseFloat(valorTexto.replace("g", ""));
-            return (numero / 1000) || 0;
-        }
-
-
-        if (valorTexto.includes("kg")) {
-            let numero = parseFloat(valorTexto.replace("kg", ""));
-            return numero || 0;
-        }
-
-
-        return parseFloat(valorTexto) || 0;
-    }
-
-    function actualizarCard(input, card, claseCantidad) {
-        input.addEventListener("input", () => {
-
-            let valorKg = convertirAKg(input.value);
-
-
-            card.querySelector(claseCantidad).textContent = valorKg.toFixed(2) + " Kg";
+        })
+        .catch(error => {
+            console.error("Error cargando estadísticas:", error);
         });
-    }
-
-    actualizarCard(inputPlastico, plasticoCard, ".kg");
-    actualizarCard(inputPapel, papelCard, ".kg");
-    actualizarCard(inputVidrio, vidrioCard, ".kg");
-    actualizarCard(inputMetal, metalCard, ".kg");
 }
