@@ -1,0 +1,120 @@
+/* =========================
+   SIDEBAR (MÓDULO)
+========================= */
+
+.sidebar{
+  width:90px;
+  height:100vh;
+  background:#1DB5AE;
+  position:fixed;
+  left:0;
+  top:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 0;
+}
+
+.logo{
+  font-size:14px;
+  font-weight:bold;
+  color:white;
+  text-align:center;
+}
+
+.sidebar nav{
+  flex:1;
+  display:flex;
+  align-items:center;
+}
+
+.sidebar nav ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+  text-align:center;
+}
+
+.sidebar nav ul li{
+  margin:35px 0;
+}
+
+.sidebar nav ul li a{
+  text-decoration:none;
+  color:white;
+  font-size:13px;
+  font-weight:500;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  transition:0.3s;
+}
+
+.sidebar nav ul li a:hover{
+  opacity:0.7;
+}
+
+/* =========================
+   CARDS (MÓDULO ESTADÍSTICAS)
+========================= */
+
+.stats-section{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:10px 0;
+}
+
+.stats-section h1{
+  color:#09B6B2;
+  margin-bottom:40px;
+}
+
+.stats-cards{
+  display:flex;
+  justify-content:center;
+  gap:50px;
+  flex-wrap:wrap;
+  margin:5px 0;
+}
+
+.card{
+  width:220px;
+  height:420px;
+  background:transparent;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* =========================
+   CONTROLES (MÓDULO)
+========================= */
+
+.controls{
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  margin-top:-40px;
+  margin-bottom:20px;
+}
+
+.controls label{
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  font-weight:bold;
+  color:#09B6B2;
+}
+
+.controls input{
+  width:100%;
+  margin-top:5px;
+  padding:8px;
+  border-radius:10px;
+  border:2px solid #09B6B2;
+  text-align:center;
+}

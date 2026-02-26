@@ -1,5 +1,6 @@
-// Cargar el módulo de inicio por defecto al cargar la página
-document.addEventListener('DOMContentLoaded', async () => {
+// Cagar el módulo de inicio por defecto al cargar la página
+window.addEventListener('DOMContentLoaded', async () => {
+    limpiarCSSModulos();
     cargarCSSModulo("../modulo-inicio/inicio-style.css");
     const response = await fetch('modulo-inicio/inicio-vista.html');
     const html = await response.text();
@@ -11,7 +12,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 // Obtener los elementos del menú
 let botonInicio = document.getElementById('btnInicio');
 let botonClasificacion = document.getElementById('btnClasificacion');
-let botonObjetivos = document.getElementById('btnObjetivos');
+let btnEstadisticas = document.getElementById('btnEstadisticas');
+let btnObjetivos = document.getElementById('btnObjetivos');
 let botonPerfil = document.getElementById('btnPerfil');
 
 // Cargar el contenido en el contenedor principal
@@ -34,14 +36,11 @@ function limpiarCSSModulos() {
     const estilosModulos = document.querySelectorAll(
         'link[data-tipo="modulo"]'
     );
-
-    console.log("CSS módulos encontrados:", estilosModulos.length);
-
     estilosModulos.forEach(link => link.remove());
 }
 
 // Agregar eventos a los botones del menú
-botonObjetivos.addEventListener('click', async () => {
+btnObjetivos.addEventListener('click', async () => {
     limpiarCSSModulos();
     cargarCSSModulo("../modulo-objetivos/styleObjetivos.css");
     const response = await fetch('modulo-objetivos/objetivos-vista.html');
@@ -51,7 +50,7 @@ botonObjetivos.addEventListener('click', async () => {
     modulo.initObjetivos();
 });
 
-botonInicio.addEventListener('click', async () => {
+btnInicio.addEventListener('click', async () => {
     limpiarCSSModulos();
     cargarCSSModulo("../modulo-inicio/inicio-style.css");
     const response = await fetch('modulo-inicio/inicio-vista.html');
@@ -59,7 +58,7 @@ botonInicio.addEventListener('click', async () => {
     cargarContenido(html);
 });
 
-botonClasificacion.addEventListener('click', async () => {
+btnClasificacion.addEventListener('click', async () => {
     limpiarCSSModulos();
     cargarCSSModulo("../modulo-clasificacion/clasificacion-style.css");
     const response = await fetch('modulo-clasificacion/clasificacion-vista.html');
@@ -68,6 +67,17 @@ botonClasificacion.addEventListener('click', async () => {
     const modulo = await import('../modulo-clasificacion/clasificacion-app.js');
     modulo.initClasificacion();
 });
+
+btnEstadisticas.addEventListener('click', async () => {
+    limpiarCSSModulos();
+    cargarCSSModulo("../modulo-estadisticas/estadisticas-style.css");
+    const response = await fetch('modulo-estadisticas/estadisticas-vista.html');
+    const html = await response.text();
+    cargarContenido(html);
+    const modulo = await import('../modulo-estadisticas/estadisticas-app.js');
+    modulo.initEstadisticas();
+});
+
 
 botonPerfil.addEventListener('click', function () {
     limpiarCSSModulos();

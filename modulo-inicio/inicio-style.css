@@ -1,11 +1,14 @@
-
-#fondo1 h1{
-    color: #C7D06C;
-    font-family: 'Arial Rounded MT Bold', sans-serif;
-    font-size: clamp(32px, 6vw, 70px);
-    /*bordes en el text*/
-    -webkit-text-stroke: 2px white;
-    text-shadow: 0 4px 8px rgba(0,0,0,0.25);
+#fondo1 {
+    background-image: url('../img/fondo_inicio.png');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
 }
 
 #fondo1 button{
@@ -33,7 +36,7 @@
     display: grid;
     grid-template-columns: repeat(3, 230px);
     justify-content: center;
-    gap: 70px 70px; /* fila / columna */
+    gap: 70px 70px;
     padding: 40px 20px;
 }
 
@@ -43,6 +46,8 @@ h3, p{
 }
 
 .card {
+    background: transparent;
+    border: none;
     width: 230px;
     height: 300px;
     perspective: 1000px;
