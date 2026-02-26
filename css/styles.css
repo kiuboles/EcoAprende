@@ -146,7 +146,7 @@ body {
 
 #vistaPrincipal {
     min-height: calc(100vh - 4vw);
-    margin-top: 4vw;
+    margin-top: 15vh;
     display: flex;
     flex-direction: column;
     align-items: center;

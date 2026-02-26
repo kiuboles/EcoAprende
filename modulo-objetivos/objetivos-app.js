@@ -1,81 +1,91 @@
 export function initObjetivos() {
-    // ===============================
-    // 1. SIMULACIÓN DE DATOS DE BD
-    // ===============================
-    const datosBD = {
-        insignia: "Tortuga",
-        categorias: {
-            latas: 5,
-            cartón: 10,
-            vidrio: 15
-        }
-    };
 
-    // Mínimos requeridos por categoría
-    const minimos = {
-        latas: 10,
-        cartón: 16,
-        vidrio: 19
-    };
+    fetch('../modulo-objetivos/bd.json')
+        .then(res => res.json())
+        .then(datosBD => {
 
+            const minimos = datosBD.minimos;
 
-    // ===============================
-    // 2. PROCESAMIENTO DE PUNTOS
-    // ===============================
-    let bloqueado = false;
-    let categoriaBloqueante = "";
+            // ===============================
+            // 2. PROCESAMIENTO DE PUNTOS
+            // ===============================
+            let bloqueado = false;
+            let categoriaBloqueante = "";
 
-    for (const categoria in minimos) {
-        if (datosBD.categorias[categoria] < minimos[categoria]) {
-            bloqueado = true;
-            categoriaBloqueante = categoria;
-            break;
-        }
-    }
+            for (const categoria in minimos) {
+                if (datosBD.categorias[categoria] < minimos[categoria]) {
+                    bloqueado = true;
+                    categoriaBloqueante = categoria;
+                    break;
+                }
+            }
 
-    // Total de puntos
-    const totalPuntos = Object.values(datosBD.categorias)
-        .reduce((acc, val) => acc + val, 0);
+            // Total de puntos obtenidos
+            const totalPuntos = Object.values(datosBD.categorias)
+                .reduce((acc, val) => acc + val, 0);
 
-    // Normalizar a porcentaje (máx 100)
-    let progreso = Math.min(totalPuntos, 100);
+            // Total requerido (100%)
+            const totalMinimos = Object.values(minimos)
+                .reduce((acc, val) => acc + val, 0);
 
-    // Si está bloqueado, limitar progreso
-    if (bloqueado) {
-        progreso = 50; // límite visual cuando no cumple reglas
-    }
+            // Progreso real
+            let progreso = Math.round((totalPuntos / totalMinimos) * 100);
+            progreso = Math.min(progreso, 100);
 
-    // ===============================
-    // 3. PINTAR EN EL DOM
-    // ===============================
-    const progressBar = document.getElementById("progress-bar");
-    const nombreInsignia = document.getElementById("nombreInsignia");
-    const textoProgreso = document.getElementById("porcentajeProgreso");
+            // Si está bloqueado, limitar progreso
+            if (bloqueado) {
+                progreso = Math.min(progreso, 99);
+            }
 
-    // Nombre de la insignia
-    nombreInsignia.textContent = datosBD.insignia;
+            // ===============================
+            // 3. PINTAR EN EL DOM
+            // ===============================
+            const progressBar = document.getElementById("progress-bar");
+            const nombreInsignia = document.getElementById("nombreInsignia");
+            const textoProgreso = document.getElementById("porcentajeProgreso");
 
-    // Barra de progreso
-    progressBar.style.width = progreso + "%";
-    progressBar.setAttribute("aria-valuenow", progreso);
-    textoProgreso.textContent = progreso + "%";
+            nombreInsignia.textContent = datosBD.insignia;
+            progressBar.style.width = progreso + "%";
+            progressBar.setAttribute("aria-valuenow", progreso);
+            textoProgreso.textContent = progreso + "%";
 
+            // Cards por categoría
+            const objetivosContainer = document.getElementById("objetivosList");
+            objetivosContainer.innerHTML = "";
 
-    // crear cards de bootstrapt como tarjetas de progreso por categoría
-    const objetivosContainer = document.getElementById("objetivosList");
+            const categoriasArray = Object.entries(datosBD.categorias);
 
-    for (const categoria in datosBD.categorias) {
-        const puntos = datosBD.categorias[categoria];
-        const minimo = minimos[categoria];
+            let contador = 0;
+            let row;
 
-        const card = document.createElement("div");
-        card.className = "card mx-3";
-        card.innerHTML = `
-        <div class="card-body">
-            <h5 class="card-title">Recicla ${categoria}:</h5>
-            <p class="card-text">${puntos} / ${minimo}</p>
-        </div>
-    `;
-        objetivosContainer.appendChild(card);
-    }
+            // recorrer categorías
+            categoriasArray.forEach(([categoria, puntos], index) => {
+
+                const minimo = minimos[categoria];
+
+                // 🔥 cada 3 crear nueva fila
+                if (contador % 3 === 0) {
+                    row = document.createElement("div");
+                    row.className = "row mb-4";
+                    objetivosContainer.appendChild(row);
+                }
+
+                const col = document.createElement("div");
+                col.className = "col-md-4";
+
+                col.innerHTML = `
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Recicla ${categoria}</h5>
+                            <p class="card-text">${puntos} / ${minimo}</p>
+                        </div>
+                    </div>
+                `;
+
+                row.appendChild(col);
+                contador++;
+            });
+
+        })
+        .catch(err => console.error("Error cargando bd.json:", err));
 }
