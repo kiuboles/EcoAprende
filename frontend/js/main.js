@@ -79,8 +79,11 @@ btnEstadisticas.addEventListener('click', async () => {
 });
 
 
-botonPerfil.addEventListener('click', function () {
+botonPerfil.addEventListener('click', async () => {
     limpiarCSSModulos();
-    cargarContenido('perfil en construcción');
+    cargarCSSModulo("../modulo-perfil/perfil-style.css");
+    const response = await fetch('modulo-perfil/perfil-vista.html');
+    const html = await response.text();
+    cargarContenido(html);
 });
 

@@ -1,4 +1,4 @@
-function initEstadisticas() {
+export function initEstadisticas() {
     const inputPlastico = document.getElementById("inputPlastico");
     const inputPapel = document.getElementById("inputPapel");
     const inputVidrio = document.getElementById("inputVidrio");
@@ -8,6 +8,7 @@ function initEstadisticas() {
     const papelCard = document.querySelector(".papel").closest(".card");
     const vidrioCard = document.querySelector(".vidrio").closest(".card");
     const metalCard = document.querySelector(".metal").closest(".card");
+
     function convertirAKg(valorTexto) {
 
         valorTexto = valorTexto.toLowerCase().trim();

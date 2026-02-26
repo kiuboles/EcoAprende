@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!-- BARRA ADMIN -->
+<div class="admin-bar">
+    <div class="admin-title">
+        <i class="bi bi-shield-lock-fill"></i> Panel de Administración
+    </div>
+</div>
+
+<div class="admin-login">
+    <h2>🔐 Acceso Administrativo</h2>
+
+    <input type="text" id="usuario" placeholder="Usuario" class="form-input">
+    <input type="password" id="password" placeholder="Contraseña" class="form-input">
+
+    <button onclick="login()" class="btn-login">Ingresar</button>
+
+    <div id="mensaje" class="error"></div>
+</div>
+
+<script>
+/* ===== CREAR ADMIN SI NO EXISTE ===== */
+if(!localStorage.getItem("admin")){
+    const admin = {
+        usuario: "admin",
+        password: "1234"
+    };
+    localStorage.setItem("admin", JSON.stringify(admin));
+}
+
+/* ===== LOGIN ===== */
+function login(){
+    const usuario = document.getElementById("usuario").value;
+    const password = document.getElementById("password").value;
+
+    const adminGuardado = JSON.parse(localStorage.getItem("admin"));
+
+    if(usuario === adminGuardado.usuario && password === adminGuardado.password){
+        
+        localStorage.setItem("sesionAdmin", "activa");
+        window.location.href = "controladorAdmin.html";
+
+    } else {
+        document.getElementById("mensaje").innerText = "Usuario o contraseña incorrectos";
+    }
+}
+</script>
