@@ -1,0 +1,106 @@
+.stats-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;   /* antes seguramente era mucho más */
+}
+
+
+.stats-section h1{
+    color:#09B6B2;
+    margin-bottom:40px;
+}
+
+.stats-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;   /* antes 40px o más */
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.stats-cards {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 5px;      /* antes estaba más grande */
+    margin-bottom: 5px;   /* menos espacio antes de inputs */
+}
+.card{
+    width: 220px;   /* 🔥 más ancho */
+    height: 420px;  /* opcional si quieres */
+    background: transparent;
+    display: flex;
+    border: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.plastico,
+.papel,
+.vidrio,
+.metal{
+    position: relative;
+    height: 100px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* 🔥 importante */
+}
+
+.icono {
+    width: 180px;   /* tamaño uniforme */
+    height: auto;
+}
+
+.kg{
+    position: absolute;
+    bottom: 25px;   
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+}
+
+.titulo-con-icono {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    margin-top: 0;          /* quitamos espacio arriba */
+    margin-bottom: 15px;    /* dejamos separación con botellas */
+}
+
+.icono-titulo {
+    width: 100%;
+    max-width: 750px;   /* más pequeño que antes */
+    height: auto;
+    display: block;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: -40px; 
+    margin-bottom: 20px;
+}
+
+.controls label{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+    color: #09B6B2;
+}
+
+.controls input{
+    width: 100%;
+    margin-top: 5px;
+    padding: 8px;
+    border-radius: 10px;
+    border: 2px solid #09B6B2;
+    text-align: center;
+}

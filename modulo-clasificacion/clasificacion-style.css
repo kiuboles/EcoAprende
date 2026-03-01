@@ -1,0 +1,125 @@
+.clasificacion-container {
+    width: 90%;
+    margin: auto;
+    padding-top: 50px;
+    text-align: center;
+}
+
+.clasificacion-title {
+    font-size: 40px;
+    margin-bottom: 50px;
+}
+
+/* PODIO */
+.podio {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 40px;
+    margin-bottom: 80px;
+    margin-top: 100px;
+}
+
+.podio-card {
+    width: 180px;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+.podio-card:hover {
+    transform: scale(1.05);
+}
+
+/* Alturas tipo podio real */
+.primero {
+    height: 260px;
+    background: linear-gradient(180deg, gold, #d4af37);
+}
+
+.segundo {
+    height: 220px;
+    background: linear-gradient(180deg, silver, #a8a8a8);
+}
+
+.tercero {
+    height: 200px;
+    background: linear-gradient(180deg, #cd7f32, #a65e2e);
+}
+
+.podio-card h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.podio-card p {
+    font-size: 18px;
+}
+
+/* LISTA DEL 4 EN ADELANTE */
+.clasificacion-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    width: 100%;
+}
+
+.clasificacion-item {
+    background: white;
+    color: #333;
+    padding: 25px;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* Primer lugar */
+.primero {
+    height: 260px;
+    background: linear-gradient(180deg, gold, #d4af37);
+    position: relative;
+    animation: brillo 2s infinite alternate;
+}
+
+/*Brillo pulsante */
+@keyframes brillo {
+    0% {
+        box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 40px rgba(255, 215, 0, 1);
+    }
+}
+
+/*Corona flotando */
+.primero::before {
+    content: "👑";
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 60px;
+    animation: flotar 2s ease-in-out infinite;
+}
+
+/* Movimiento flotante */
+@keyframes flotar {
+    0% { transform: translate(-50%, 0px); }
+    50% { transform: translate(-50%, -10px); }
+    100% { transform: translate(-50%, 0px); }
+}
+
+.primero h2 {
+    animation: textoGlow 1.5s infinite alternate;
+}
+
+@keyframes textoGlow {
+    0% { text-shadow: 0 0 5px white; }
+    100% { text-shadow: 0 0 20px white; }
+}
