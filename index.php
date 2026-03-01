@@ -15,6 +15,19 @@ Notas:
 ===========================================================
 -->
 
+<?php
+session_start();
+$img = "";
+
+if (!isset($_SESSION["id_usuario"])) {
+    $img = "icono.png";
+    $username = "username";
+} else {
+    $img = $_SESSION["img"];
+    $username = $_SESSION["username"];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -55,28 +68,28 @@ Notas:
             <li class="nav-item" role="none">
                 <button id="btnInicio" class="p-3" type="button" role="menuitem">
                     <i class="bi bi-house" aria-hidden="true"></i>
-                    <span >Inicio</span>
+                    <span>Inicio</span>
                 </button>
             </li>
 
             <li class="nav-item" role="none">
                 <button id="btnObjetivos" class="p-3" type="button" role="menuitem">
                     <i class="bi bi-bug" aria-hidden="true"></i>
-                    <span >Objetivos</span>
+                    <span>Objetivos</span>
                 </button>
             </li>
 
             <li class="nav-item" role="none">
                 <button id="btnClasificacion" class="p-3" type="button" role="menuitem">
                     <i class="bi bi-award" aria-hidden="true"></i>
-                    <span >Clasificación</span>
+                    <span>Clasificación</span>
                 </button>
             </li>
 
             <li class="nav-item" role="none">
                 <button id="btnEstadisticas" class="p-3" type="button" role="menuitem">
                     <i class="bi bi-bar-chart" aria-hidden="true"></i>
-                    <span >Estadisticas</span>
+                    <span>Estadisticas</span>
                 </button>
             </li>
 
@@ -84,12 +97,12 @@ Notas:
 
         <!-- Perfil -->
         <button id="btnPerfil" class="p-3 border-top" type="button" aria-label="Perfil de usuario">
-            <img id="imgPerfil" class="img-perfil" src="img/icono.png" alt="Imagen de perfil del usuario">
+            <img id="imgPerfil" class="img-perfil" src="img/<?= $img ?>">
         </button>
 
         <!-- Username dinámico -->
         <p id="username" aria-live="polite">
-            Username
+            <?= $username ?>
         </p>
     </nav>
 
@@ -124,6 +137,18 @@ Notas:
         crossorigin="anonymous"></script>
 
     <script type="module" src="js/main.js"></script>
+
+    <!-- ===== TOAST ERROR ===== -->
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 9999">
+        <div id="toastError" class="toast align-items-center text-bg-danger border-0" role="alert">
+            <div class="d-flex">
+                <div class="toast-body">
+                    Usuario o contraseña incorrectos. Intenta nuevamente.
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

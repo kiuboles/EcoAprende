@@ -1,45 +1,38 @@
 export function initObjetivos() {
 
-    fetch('../modulo-objetivos/bd.json')
+    fetch('../backend/reciclaje/objetivos.php')
         .then(res => res.json())
         .then(datosBD => {
 
             const minimos = datosBD.minimos;
 
-            // ===============================
-            // 2. PROCESAMIENTO DE PUNTOS
-            // ===============================
+            // Convertir a números
+            const categoriasNumericas = {};
+            for (const categoria in datosBD.categorias) {
+                categoriasNumericas[categoria] = parseFloat(datosBD.categorias[categoria]);
+            }
+
             let bloqueado = false;
-            let categoriaBloqueante = "";
 
             for (const categoria in minimos) {
-                if (datosBD.categorias[categoria] < minimos[categoria]) {
+                if (categoriasNumericas[categoria] < minimos[categoria]) {
                     bloqueado = true;
-                    categoriaBloqueante = categoria;
                     break;
                 }
             }
 
-            // Total de puntos obtenidos
-            const totalPuntos = Object.values(datosBD.categorias)
+            const totalPuntos = Object.values(categoriasNumericas)
                 .reduce((acc, val) => acc + val, 0);
 
-            // Total requerido (100%)
             const totalMinimos = Object.values(minimos)
                 .reduce((acc, val) => acc + val, 0);
 
-            // Progreso real
-            let progreso = Math.round((totalPuntos / totalMinimos) * 100);
+            let progreso = totalMinimos > 0
+                ? Math.round((totalPuntos / totalMinimos) * 100)
+                : 0;
+
             progreso = Math.min(progreso, 100);
-
-            // Si está bloqueado, limitar progreso
-            if (bloqueado) {
-                progreso = Math.min(progreso, 99);
-            }
-
-            // ===============================
-            // 3. PINTAR EN EL DOM
-            // ===============================
+            if (bloqueado) progreso = Math.min(progreso, 99);
             const progressBar = document.getElementById("progress-bar");
             const nombreInsignia = document.getElementById("nombreInsignia");
             const textoProgreso = document.getElementById("porcentajeProgreso");
@@ -87,5 +80,5 @@ export function initObjetivos() {
             });
 
         })
-        .catch(err => console.error("Error cargando bd.json:", err));
+        .catch(err => console.error("Error cargando objetivos:", err));
 }

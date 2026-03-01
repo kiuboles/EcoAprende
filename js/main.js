@@ -43,7 +43,7 @@ function limpiarCSSModulos() {
 btnObjetivos.addEventListener('click', async () => {
     limpiarCSSModulos();
     cargarCSSModulo("../modulo-objetivos/styleObjetivos.css");
-    const response = await fetch('modulo-objetivos/objetivos-vista.html');
+    const response = await fetch('modulo-objetivos/objetivos-vista.php');
     const html = await response.text();
     cargarContenido(html);
     const modulo = await import('../modulo-objetivos/objetivos-app.js');
@@ -61,7 +61,7 @@ btnInicio.addEventListener('click', async () => {
 btnClasificacion.addEventListener('click', async () => {
     limpiarCSSModulos();
     cargarCSSModulo("../modulo-clasificacion/clasificacion-style.css");
-    const response = await fetch('modulo-clasificacion/clasificacion-vista.html');
+    const response = await fetch('modulo-clasificacion/clasificacion-vista.php');
     const html = await response.text();
     cargarContenido(html);
     const modulo = await import('../modulo-clasificacion/clasificacion-app.js');
@@ -71,7 +71,7 @@ btnClasificacion.addEventListener('click', async () => {
 btnEstadisticas.addEventListener('click', async () => {
     limpiarCSSModulos();
     cargarCSSModulo("../modulo-estadisticas/estadisticas-style.css");
-    const response = await fetch('modulo-estadisticas/estadisticas-vista.html');
+    const response = await fetch('modulo-estadisticas/estadisticas-vista.php');
     const html = await response.text();
     cargarContenido(html);
     const modulo = await import('../modulo-estadisticas/estadisticas-app.js');
@@ -82,8 +82,19 @@ btnEstadisticas.addEventListener('click', async () => {
 botonPerfil.addEventListener('click', async () => {
     limpiarCSSModulos();
     cargarCSSModulo("../modulo-perfil/perfil-style.css");
-    const response = await fetch('modulo-perfil/perfil-vista.html');
+    const response = await fetch('modulo-perfil/perfil-vista.php');
     const html = await response.text();
     cargarContenido(html);
 });
 
+// Detectar parámetro error en la URL
+    const params = new URLSearchParams(window.location.search);
+    
+    if (params.get("error") === "1") {
+        const toastEl = document.getElementById("toastError");
+        const toast = new bootstrap.Toast(toastEl, { delay: 3000 });
+        toast.show();
+
+        // Opcional: limpiar el ?error=1 de la URL
+        window.history.replaceState({}, document.title, window.location.pathname);
+    }

@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!isset($_SESSION["id_usuario"])) {
+    header("Location: ../../modulo-login/login-vista.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 
 <section class="stats-section">
@@ -11,49 +19,31 @@
         <div class="card">
             <div class="plastico">
                 <img src="modulo-estadisticas/img/plastico.png" class="icono">
-                <span class="kg">0 Kg</span>
+                <span class="kg">0</span>
             </div>
         </div>
 
         <div class="card">
             <div class="papel">
                 <img src="modulo-estadisticas/img/papel.png" class="icono">
-                <span class="kg">0 Kg</span>
+                <span class="kg">0</span>
             </div>
         </div>
 
         <div class="card">
             <div class="vidrio">
                 <img src="modulo-estadisticas/img/vidrio.png" class="icono">
-                <span class="kg">0 Kg</span>
+                <span class="kg">0</span>
             </div>
         </div>
 
         <div class="card">
             <div class="metal">
                 <img src="modulo-estadisticas/img/metal.png" class="icono">
-                <span class="kg">0 Kg</span>
+                <span class="kg">0</span>
             </div>
         </div>
 
-    </div>
-
-    <div class="controls">
-        <label>Plástico
-            <input type="text" id="inputPlastico" min="0" value="0">
-        </label>
-
-        <label>Papel
-            <input type="number" id="inputPapel" min="0" value="0">
-        </label>
-
-        <label>Vidrio
-            <input type="number" id="inputVidrio" min="0" value="0">
-        </label>
-
-        <label>Metal
-            <input type="number" id="inputMetal" min="0" value="0">
-        </label>
-    </div>
+</div>
 
 </section>
