@@ -58,10 +58,6 @@ if (!isset($_SESSION["id_usuario"])) {
     <!-- ================= SIDEBAR ================= -->
     <nav id="barraLateral" class="d-flex flex-column flex-shrink-0 fixed-top"
         aria-label="Barra de navegación principal">
-        <!-- Logo 
-        <button id="btnLogo" class="p-3" type="button" aria-label="Ir a inicio">
-            <img src="img/EcoAprende.png" id="logo" alt="Logo EcoAprende">
-        </button> -->
 
         <!-- Navegación -->
         <ul class="nav nav-pills nav-flush flex-column mb-auto text-center" role="menu">
@@ -108,15 +104,12 @@ if (!isset($_SESSION["id_usuario"])) {
 
     <!-- ================= CONTENIDO PRINCIPAL ================= -->
     <main id="contenidos">
-        <!-- ===== BUSCADOR ===== -->
+        <!-- ===== HEADER CON LOGO ===== -->
         <header id="header" class="p-5">
             <div class="logo">
                 <div class="box"><img src="img/koala.png" alt="" id="koalaLogo"></div>
                 <div class="text"><span class="first"><img src="img/banderin.png" alt="" id="banderinLogo"></span></div>
             </div>
-            <!-- <div class="container w-50">
-                <input type="search" id="buscadorInput" class="form-control" placeholder="Buscar">
-            </div> -->
         </header>
 
         <!-- ===== FONDO DECORATIVO ===== -->
